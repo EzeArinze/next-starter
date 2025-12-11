@@ -19,8 +19,8 @@ interface ResetPasswordEmailProps {
 }
 
 const ResetPasswordEmail = ({
-  username = 'Nicole',
-  company = 'Reclaim',
+  username = 'Xname',
+  company = 'Xcompany',
   url,
 }: ResetPasswordEmailProps) => {
   const previewText = `Reset your ${company} password`;

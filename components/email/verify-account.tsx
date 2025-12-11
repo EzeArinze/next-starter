@@ -19,8 +19,8 @@ interface WelcomeEmailProps {
 }
 
 const VerifyAccountEmail = ({
-  username = 'Nicole',
-  company = 'Reclaim',
+  username = 'Xname',
+  company = 'Xcompany',
   url,
 }: WelcomeEmailProps) => {
   const previewText = `Welcome to ${company}, ${username}!`;
