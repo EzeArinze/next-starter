@@ -39,7 +39,7 @@ export const auth = betterAuth({
     },
     sendOnSignUp: true,
     autoSignInAfterVerification: true,
-    expiresIn: 5 * 60,
+    expiresIn: 15 * 60,
   },
   socialProviders: {
     github: {
@@ -71,13 +71,13 @@ export const auth = betterAuth({
   session: {
     cookieCache: {
       enabled: true,
-      maxAge: 30 * 60,
+      maxAge: 60 * 60,
     },
   },
   rateLimit: {
     enabled: true,
     window: 10,
-    max: 100,
+    max: 10,
   },
   trustedOrigins: [env.BETTER_AUTH_URL],
   plugins: [nextCookies()],
