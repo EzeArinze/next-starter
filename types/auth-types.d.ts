@@ -18,3 +18,14 @@ type SignUpType = {
   callbackURL?: string;
   confirmPassword: string;
 };
+
+type resetPaswordType = {
+  password: string;
+  confirmPassword: string;
+  token: string;
+};
+
+type ResetPasswordActionType = {
+  email: string;
+  redirectTo: string;
+};

@@ -1,5 +1,10 @@
-import { signIn, signUp } from '@/lib/auth-client';
-import { signInSchema, signUpSchema } from '@/schema/auth-zod-schema';
+import { authClient, signIn, signUp } from '@/lib/auth-client';
+import {
+  resetPasswordEmail,
+  resetPasswordSchema,
+  signInSchema,
+  signUpSchema,
+} from '@/schema/auth-zod-schema';
 import { toast } from 'sonner';
 
 export async function SignIn({ email, password, callbackURL = '/dashboard' }: SignInType) {
@@ -61,6 +66,60 @@ export async function SignUp({
       },
       onSuccess: (ctx) => {
         toast.success(`Account created successfully: ${ctx.data.user.email}`);
+      },
+    },
+  );
+}
+
+export async function resetPasswordAction({ password, confirmPassword, token }: resetPaswordType) {
+  const validated = resetPasswordSchema.safeParse({
+    password,
+    confirmPassword,
+  });
+
+  if (validated.error) {
+    throw new Error('Your password does not match');
+  }
+
+  const { data } = validated;
+
+  await authClient.resetPassword(
+    {
+      newPassword: data.password,
+      token,
+    },
+    {
+      onError(context) {
+        toast.error(context.error.message);
+      },
+      onSuccess() {
+        toast.success('Password reset successfully');
+        window.location.href = '/dashboard';
+      },
+    },
+  );
+}
+
+export async function ResetPasswordMail({ email, redirectTo }: ResetPasswordActionType) {
+  const validated = resetPasswordEmail.safeParse({ email });
+
+  if (validated.error) {
+    throw new Error('Please provide a valid email');
+  }
+
+  const { data } = validated;
+
+  await authClient.requestPasswordReset(
+    {
+      email: data.email,
+      redirectTo,
+    },
+    {
+      onError: (ctx) => {
+        toast.error(ctx.error.message);
+      },
+      onSuccess: () => {
+        toast.success(`Password reset email sent`);
       },
     },
   );
