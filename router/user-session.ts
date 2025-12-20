@@ -1,6 +1,6 @@
 import z from 'zod';
 import { requireAuthMiddleware } from './middleware/auth/auth-middleware';
-import { baseMiddleware } from './middleware/base';
+import { baseMiddleware } from './base';
 import { getSession, getSessionType } from './middleware/auth/session';
 
 export const userSession = baseMiddleware

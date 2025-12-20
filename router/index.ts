@@ -1,9 +1,7 @@
-import { os } from '@orpc/server';
-import { requireAuthMiddleware } from './middleware/auth/auth-middleware';
+import { userSession } from './user-session';
 
-export const router = os.use(requireAuthMiddleware).router({
+export const router = {
   user: {
-    list: os.handler(() => 'Adam'),
-    create: os.handler(() => 'Mike'),
+    list: userSession,
   },
-});
+};

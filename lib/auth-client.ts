@@ -1,4 +1,4 @@
-import { createAuthClient } from 'better-auth/client';
+import { createAuthClient } from 'better-auth/react';
 import { toast } from 'sonner';
 
 export const authClient = createAuthClient({
@@ -13,4 +13,4 @@ export const authClient = createAuthClient({
   },
 });
 
-export const { signIn, signOut, signUp } = authClient;
+export const { signIn, signUp, useSession, signOut } = authClient;
