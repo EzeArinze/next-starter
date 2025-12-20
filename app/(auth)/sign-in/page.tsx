@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import SignInPage from '../_components/sign-in';
+import { SignInPage } from '../_components/sign-in';
 import { buttonVariants } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 
-export async function SignIn() {
+export default async function SignIn() {
   const user = await auth.api.getSession({
     headers: await headers(),
   });

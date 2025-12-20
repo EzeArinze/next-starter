@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Nav } from './_components/nav';
 
 export const metadata: Metadata = {
-  title: 'Universal prime capital',
-  description: "Invest in real-estate, crypto, crude-oil, gold, ruby's. e.t.c",
+  title: 'Next Starter',
+  description: 'A starter template for Next.js with authentication, orpc, and TanStack Query.',
 };
 
 export default function RootLayout({

@@ -1,3 +1,5 @@
+'use client';
+
 import { useTransition } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
@@ -16,7 +18,7 @@ import Logo from '@/components/logo';
 import { signInSchema, signInSchemaType } from '@/schema/auth-zod-schema';
 import { SignIn } from '../action';
 
-export default function SignInPage() {
+export function SignInPage() {
   const [loading, startTransition] = useTransition();
   const [pending, providerTransition] = useTransition();
 
@@ -28,7 +30,7 @@ export default function SignInPage() {
     },
   });
 
-  const handleSignIn = ({ data, action, provider }: SignInAction) => {
+  const handleSignIn = ({ data, action, provider }: AuthenticationAction) => {
     if (action === 'credentials' && data) {
       const { email, password } = data;
       startTransition(async () => {

@@ -13,12 +13,11 @@ import { Spinner } from '@/components/ui/spinner';
 import { AuthSeperator } from './auth-seperator';
 import { signUpSchema, signUpSchemaType } from '@/schema/auth-zod-schema';
 import { tryCatch } from '@/utils/try-catch';
-
 import { authClient } from '@/lib/auth-client';
-import Logo from '@/components/logo';
 import { SignUp } from '../action';
+import Logo from '@/components/logo';
 
-export default function SignUpPage() {
+export function SignUpPage() {
   const [loading, startTransition] = useTransition();
   const [pending, providerTransition] = useTransition();
 
