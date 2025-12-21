@@ -1,9 +1,5 @@
-import { Nav } from './_components/nav';
+import StarterInfoPage from './_components/starter-page';
 
-export default function page() {
-  return (
-    <div className="flex h-screen w-full">
-      <Nav />
-    </div>
-  );
+export default function Page() {
+  return <StarterInfoPage />;
 }

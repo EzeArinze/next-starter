@@ -1,22 +1,13 @@
-import type { Metadata } from 'next';
 import { Nav } from './_components/nav';
 
-export const metadata: Metadata = {
-  title: 'Next Starter',
-  description: 'A starter template for Next.js with authentication, orpc, and TanStack Query.',
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div suppressHydrationWarning>
-      <header>
+    <div suppressHydrationWarning className="bg-background min-h-screen">
+      <header className="fixed inset-x-0 top-0 z-20 h-16">
         <Nav />
       </header>
-      {children}
+
+      <main className="pt-16">{children}</main>
     </div>
   );
 }
