@@ -1,6 +1,6 @@
 export default function Logo() {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center rounded-full border px-3 py-1 shadow-sm">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="34"
@@ -22,7 +22,7 @@ export default function Logo() {
         />
       </svg>
 
-      <span className="text-xl font-semibold tracking-tight">Next Starter</span>
+      <span className="ml-2 text-xl font-semibold tracking-tight">Next</span>
     </div>
   );
 }
